@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "onlybuild": "file:../..",
+    "marked": "12.0.2"
+  },
+  "scripts": {
+    "build": "onlybuild"
+  },
+  "private": true
+}

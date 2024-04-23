@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "onlybuild": "file:../.."
+  },
+  "scripts": {
+    "build": "onlybuild"
+  },
+  "private": true
+}

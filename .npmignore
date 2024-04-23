@@ -1,0 +1,13 @@
+.github/
+
+.vscode/
+
+examples/
+
+tests/
+
+*.test.js
+
+.onlyignore
+
+.prettierrc
