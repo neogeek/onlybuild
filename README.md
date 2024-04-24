@@ -181,9 +181,53 @@ Install the [lit-html](https://marketplace.visualstudio.com/items?itemName=biern
 
 ## File Structure
 
-When you run `npx onlybuild` the default export of all `.mjs` file will be captured and written to files in a `build/` directory.
+When you run `npx onlybuild`, the default export of all `.mjs` files will be captured and written to the `build/` directory, while all other files will be copied with the same file structure to the `build` directory unless included in the `.onlyignore` file.
 
 If the name of your `.mjs` file is `index.mjs` the output will be saved to `index.html`, but if it's name is `something-else.mjs` the output will be saved to `something-else/index.mjs`.
+
+See the example file structure below for a more comprehensive example that includes building files and copying static files.
+
+<table>
+<tr>
+<th>
+Files
+</v>
+<th>
+Build Output
+</th>
+<tr>
+<td>
+
+```
+├── about
+│   └── index.mjs
+├── blog
+│   └── hello-world.mjs
+├── css
+│   └── styles.css
+├── images
+│   └── icon.png
+└── index.mjs
+
+```
+
+</td>
+<td>
+
+```
+├── index.html
+├── css
+│   └── styles.css
+├── images
+│   └── icon.png
+├── about
+│   └── index.html
+└── blog
+    └── hello-world
+        └── index.html
+```
+
+</td></tr></table>
 
 ## Ignore Files
 
