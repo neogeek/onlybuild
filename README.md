@@ -142,6 +142,31 @@ import { marked } from 'marked';
 export default marked.parse(await readFile('index.md', 'utf8'));
 ```
 
+### Parse Markdown w/ Syntax Highlighting
+
+This Markdown example parses code blocks and adds CSS classes before rendering the page to HTML.
+
+```javascript
+import { readFile } from 'node:fs/promises';
+
+import { Marked } from 'marked';
+
+import { markedHighlight } from 'marked-highlight';
+import hljs from 'highlight.js';
+
+const marked = new Marked(
+  markedHighlight({
+    langPrefix: 'hljs language-',
+    highlight(code, lang, info) {
+      const language = hljs.getLanguage(lang) ? lang : 'plaintext';
+      return hljs.highlight(code, { language }).value;
+    }
+  })
+);
+
+export default marked.parse(await readFile('index.md', 'utf8'));
+```
+
 ### <code>&#96;html&#96;</code> String Template Utility
 
 The `onlybuild` library includes an optional <code>&#96;html&#96;</code> string template utility that can be used to add syntax highlighting and formatting to HTML, making it easier to author HTML in JavaScript.
