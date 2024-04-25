@@ -32,6 +32,7 @@
 - [Ignore Files](#ignore-files)
 - [Formatting Files](#formatting-files)
 - [Watching For Changes](#watching-for-changes)
+- [Local Server](#local-server)
 - [Examples](#examples)
 - [Benchmark](#benchmark)
 - [Testing](#testing)
@@ -284,6 +285,21 @@ If you want to automatically rebuild the project when files are updated you can 
   "scripts": {
     "build": "onlybuild",
     "watch": "npx nodemon -e mjs,md,css -x \"npm run build\""
+  },
+  ...
+}
+```
+
+## Local Server
+
+Serving the files once the build is complete is easy using the NPM package [http-server](https://github.com/http-party/http-server).
+
+```json
+{
+  ...
+  "scripts": {
+    "build": "onlybuild",
+    "serve": "npx http-server build"
   },
   ...
 }
