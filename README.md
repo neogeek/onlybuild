@@ -210,7 +210,6 @@ Build Output
 ├── images
 │   └── icon.png
 └── index.mjs
-
 ```
 
 </td>
@@ -227,6 +226,7 @@ Build Output
 └── blog
     └── hello-world
         └── index.html
+
 ```
 
 </td></tr></table>
