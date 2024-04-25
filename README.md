@@ -31,6 +31,7 @@
 - [File Structure](#file-structure)
 - [Ignore Files](#ignore-files)
 - [Formatting Files](#formatting-files)
+- [Watching For Changes](#watching-for-changes)
 - [Examples](#examples)
 - [Benchmark](#benchmark)
 - [Testing](#testing)
@@ -247,16 +248,45 @@ LICENSE
 
 ## Formatting Files
 
-Originally, [Prettier](https://prettier.io/) was included in the build step, but it caused the build time to balloon to 3x its current time. Because of this, it was removed and is recommended to run after the build step, or not at all if it's not needed.
+If you want to reformat the HTML files in the build directory, you can use [Prettier](https://prettier.io/) after the build completes.
 
-```bash
-$ npx prettier --write "build/**/*.html"
+```json
+{
+  ...
+  "scripts": {
+    "build": "onlybuild",
+    "format": "npx prettier --write \"build/**/*.html\""
+  },
+  ...
+}
 ```
 
 If your `build/` directory is in `.gitignore` (which it probably should be) you will need to ignore the `.gitignore` file by setting the `--ignore-path` flag to something else. The file you set it to doesn't need to exist.
 
-```bash
-$ npx prettier --write --ignore-path .prettierignore "build/**/*.html"
+```json
+{
+  ...
+  "scripts": {
+    "build": "onlybuild",
+    "format": "npx prettier --write --ignore-path .prettierignore \"build/**/*.html\""
+  },
+  ...
+}
+```
+
+## Watching For Changes
+
+If you want to automatically rebuild the project when files are updated you can use [nodemon](https://nodemon.io/).
+
+```json
+{
+  ...
+  "scripts": {
+    "build": "onlybuild",
+    "watch": "npx nodemon -e mjs,md,css -x \"npm run build\""
+  },
+  ...
+}
 ```
 
 ## Examples
