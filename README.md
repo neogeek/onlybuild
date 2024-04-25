@@ -284,7 +284,7 @@ If you want to automatically rebuild the project when files are updated you can 
   ...
   "scripts": {
     "build": "onlybuild",
-    "watch": "npx nodemon -e mjs,md,css -x \"npm run build\""
+    "watch": "npx nodemon --ext mjs,md,css --ignore ./build -x \"npm run build\""
   },
   ...
 }
