@@ -181,7 +181,7 @@ Install the [lit-html](https://marketplace.visualstudio.com/items?itemName=biern
 
 ## File Structure
 
-When you run `npx onlybuild`, the default export of all `.mjs` files will be captured and written to the `build/` directory, while all other files will be copied with the same file structure to the `build` directory unless included in the `.onlyignore` file.
+When you run `npx onlybuild`, all `.mjs` files with a `export default` that returns a string will be captured and written to the `build/` directory. All other files will be copied with the same file structure to the `build` directory unless included in the `.onlyignore` file or in a default ignored directory, indicated by a leading `_` character.
 
 If the name of your `.mjs` file is `index.mjs` the output will be saved to `index.html`, but if it's name is `something-else.mjs` the output will be saved to `something-else/index.mjs`.
 
@@ -199,6 +199,8 @@ Build Output
 <td>
 
 ```
+├── _includes
+│   └── head.mjs
 ├── about
 │   └── index.mjs
 ├── blog
@@ -232,6 +234,8 @@ Build Output
 ## Ignore Files
 
 If you want to ignore files from being generated into static files or copied into the `build.` directory you can add them to an ignore file called `.onlyignore`, which has a syntax similar to [`.gitignore`](https://git-scm.com/docs/gitignore) files.
+
+As stated in the previous section, any files in a directory with a leading `_` character will be automatically ignored. Example: `_includes` or `_data`.
 
 ```
 *.md
