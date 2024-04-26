@@ -3,7 +3,7 @@ import assert from 'node:assert';
 
 import { html } from './html.js';
 
-describe('html string template', async () => {
+describe('html string template utility', async () => {
   test('simple html string', () => {
     assert.equal(
       html`<span><b>this is a test</b></span>`,
