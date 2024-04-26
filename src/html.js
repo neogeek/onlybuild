@@ -1,4 +1,6 @@
 /**
+ * String template utility that adds syntax highlighting and formatting in text editors.
+ *
  * @param {TemplateStringsArray} strings
  * @param {any[]} values
  */
