@@ -34,8 +34,8 @@ if (args.flags['--version'] || args.flags['-v']) {
 
    -h, --help            Display this help message.
    -v, --version         Display the current installed version.
-   -o, --out             Sets build directory.
-   -i, --ignore          Sets ignore file path.
+   -o, --out             Sets build directory. Default path is build/
+   -i, --ignore          Sets ignore file path. Default path is .onlyignore
 `);
   process.exit();
 }
