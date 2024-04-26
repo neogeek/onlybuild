@@ -27,6 +27,7 @@
 ## Table of Contents
 
 - [Install](#install)
+- [Usage](#usage)
 - [Quick Start Guide](#quick-start-guide)
 - [Getting Started](#getting-started)
 - [File Structure](#file-structure)
@@ -77,6 +78,19 @@ $ npm install onlybuild --save-dev
 
 ```bash
 $ npm run build
+```
+
+## Usage
+
+```bash
+Usage: onlybuild <path> ... [options]
+
+  Options:
+
+   -h, --help            Display this help message.
+   -v, --version         Display the current installed version.
+   -o, --out             Sets build directory. Default path is build/
+   -i, --ignore          Sets ignore file path. Default path is .onlyignore
 ```
 
 ## Quick Start Guide
