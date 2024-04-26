@@ -83,7 +83,7 @@ $ npm run build
 ## Usage
 
 ```bash
-Usage: onlybuild <path> ... [options]
+Usage: onlybuild <path> [options]
 
   Options:
 

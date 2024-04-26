@@ -28,7 +28,7 @@ if (args.flags['--version'] || args.flags['-v']) {
   );
   process.exit();
 } else if (args.flags['--help'] || args.flags['-h']) {
-  process.stdout.write(`Usage: onlybuild <path> ... [options]
+  process.stdout.write(`Usage: onlybuild <path> [options]
 
   Options:
 
