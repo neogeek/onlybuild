@@ -5,6 +5,8 @@ on:
     branches:
       - main
     paths-ignore:
+      - 'CHANGELOG.md'
+      - 'CONTRIBUTING.md'
       - 'README.md'
   pull_request:
     types: [opened, synchronize, reopened, ready_for_review]
