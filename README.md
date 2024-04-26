@@ -4,6 +4,7 @@
 
 [![Test](https://github.com/neogeek/onlybuild/actions/workflows/test.workflow.yml/badge.svg)](https://github.com/neogeek/onlybuild/actions/workflows/test.workflow.yml)
 [![Publish](https://github.com/neogeek/onlybuild/actions/workflows/publish.workflow.yml/badge.svg)](https://github.com/neogeek/onlybuild/actions/workflows/publish.workflow.yml)
+[![Documentation](https://doxdox.org/images/badge-flat.svg)](https://doxdox.org/neogeek/onlybuild)
 [![NPM version](https://img.shields.io/npm/v/onlybuild)](https://www.npmjs.org/package/onlybuild)
 [![Join the chat at https://discord.gg/nNtFsfd](https://img.shields.io/badge/discord-join%20chat-7289DA.svg)](https://discord.gg/nNtFsfd)
 
