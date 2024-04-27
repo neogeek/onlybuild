@@ -50,7 +50,7 @@ const [ignoreFile = '.onlyignore'] = [args.flags['--ignore'], args.flags['-i']]
 
 await buildFiles(
   await globby(['**/*.mjs', '!_*/**/*', '!node_modules/', `!${buildDir}`], {
-    gitignore: true,
+    gitignore: false,
     ignoreFiles: [ignoreFile],
     cwd: args.inputs[0]
   }),
@@ -69,7 +69,7 @@ await copyFiles(
       `!${buildDir}`
     ],
     {
-      gitignore: true,
+      gitignore: false,
       ignoreFiles: [ignoreFile],
       cwd: args.inputs[0]
     }
