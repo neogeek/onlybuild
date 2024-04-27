@@ -28,19 +28,19 @@ SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
             sed -i '' -e "s/index/posts\/${i}/g" "posts/${i}.mjs"
         done
 
-        ITERATIONS=5
+        ITERATIONS=3
 
-        TOTAL_TIME=0
+        MIN_TIME=0
 
-        for i in $(seq 1 $ITERATIONS); do
+        for i in $(seq 1 "${ITERATIONS}"); do
             CURRENT_TIME=$({ time npm run build 2>&1 1>/dev/null; } 2>&1)
 
-            TOTAL_TIME=$(echo "${TOTAL_TIME} + ${CURRENT_TIME}" | bc)
+            if [[ "${MIN_TIME}" == 0 || "${CURRENT_TIME}" < "${MIN_TIME}" ]]; then
+                MIN_TIME="${CURRENT_TIME}"
+            fi
         done
 
-        AVERAGE_TIME=$(echo "scale=3; ${TOTAL_TIME} / ${ITERATIONS}" | bc)
-
-        echo "Average time to compile ${COUNT} markdown files: ${AVERAGE_TIME}s"
+        echo "Lowest/fastest time to compile ${COUNT} markdown files: ${MIN_TIME}s"
     done
 
     cleanup

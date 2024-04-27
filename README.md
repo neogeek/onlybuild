@@ -331,13 +331,13 @@ Serving the files once the build is complete is easy using the NPM package [http
 ## Benchmark
 
 > [!NOTE]
-> Each run (for onlybuild only) was repeated 5 times and the average time was selected. This result set was generated on a MacBook Air (M1, 2020), macOS Sonoma 14.4.1, 8 GB memory.
+> Each run (for onlybuild only) was repeated 5 times and the lowest/fastest time was selected. This result set was generated on a MacBook Air (M1, 2020), macOS Sonoma 14.4.1, 8 GB memory.
 
 Times shown are in seconds. Lower is better.
 
 | Markdown Files                                 |      250 |      500 |     1000 |     2000 |     4000 |
 | ---------------------------------------------- | -------: | -------: | -------: | -------: | -------: |
-| onlybuild                                      |  `0.321` |  `0.390` |  `0.554` |  `0.892` |  `1.717` |
+| onlybuild                                      |  `0.294` |  `0.374` |  `0.529` |  `0.823` |  `1.412` |
 | [Hugo](https://gohugo.io/) v0.101.0            |  `0.071` |  `0.110` |  `0.171` |  `0.352` |  `0.684` |
 | [Eleventy](https://www.11ty.dev/) 1.0.1        |  `0.584` |  `0.683` |  `0.914` |  `1.250` |  `1.938` |
 | [Astro](https://astro.build/) 1.0.1            |  `2.270` |  `3.172` |  `5.098` |  `9.791` | `22.907` |
