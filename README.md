@@ -331,7 +331,7 @@ Serving the files once the build is complete is easy using the NPM package [http
 ## Benchmark
 
 > [!NOTE]
-> Each run (for onlybuild only) was repeated 5 times and the lowest/fastest time was selected. This result set was generated on a MacBook Air (M1, 2020), macOS Sonoma 14.4.1, 8 GB memory.
+> Each run (for `onlybuild` only) was repeated 5 times and the lowest/fastest time was selected. This result set was generated on a MacBook Air (M1, 2020), macOS Sonoma 14.4.1, 8 GB memory.
 
 Times shown are in seconds. Lower is better.
 
