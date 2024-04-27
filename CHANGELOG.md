@@ -1,5 +1,11 @@
 # Changelog
 
+## [HEAD](https://github.com/neogeek/onlybuild/tree/HEAD) - (2024-04-26)
+
+[Full Changelog](https://github.com/neogeek/onlybuild/compare/v1.1.0...HEAD)
+
+- [hotfix] Disable gitignore in globby. [#3](https://github.com/neogeek/onlybuild/pull/3)
+
 ## [v1.1.0](https://github.com/neogeek/onlybuild/tree/v1.1.0) - (2024-04-26)
 
 [Full Changelog](https://github.com/neogeek/onlybuild/compare/v1.0.0...v1.1.0)
