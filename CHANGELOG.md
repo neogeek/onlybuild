@@ -1,5 +1,11 @@
 # Changelog
 
+## [v1.2.1](https://github.com/neogeek/onlybuild/tree/v1.2.1) - (2024-05-07)
+
+[Full Changelog](https://github.com/neogeek/onlybuild/compare/v1.2.0...v1.2.1)
+
+- [hotfix] Fixed issue with getting version from package.json [#11](https://github.com/neogeek/onlybuild/pull/11)
+
 ## [v1.2.0](https://github.com/neogeek/onlybuild/tree/v1.2.0) - (2024-05-07)
 
 [Full Changelog](https://github.com/neogeek/onlybuild/compare/v1.1.0...v1.2.0)
