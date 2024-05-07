@@ -1,8 +1,4 @@
-#!/usr/bin/env node
-
-import { readFile } from 'node:fs/promises';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+#!/usr/bin/env node --no-warnings
 
 import 'dotenv/config';
 
@@ -13,21 +9,14 @@ import parseCmdArgs from 'parse-cmd-args';
 import { buildFiles } from '../src/build.js';
 import { copyFiles } from '../src/copy.js';
 
+import pkg from '../package.json' assert { type: 'json' };
+
 const args = parseCmdArgs(null, {
   requireUserInput: false
 });
 
 if (args.flags['--version'] || args.flags['-v']) {
-  process.stdout.write(
-    `${
-      JSON.parse(
-        await readFile(
-          join(dirname(fileURLToPath(import.meta.url)), '../package.json'),
-          'utf8'
-        )
-      ).version
-    }\n`
-  );
+  process.stdout.write(`${pkg.version}\n`);
   process.exit();
 } else if (args.flags['--help'] || args.flags['-h']) {
   process.stdout.write(`Usage: onlybuild <path> [options]
