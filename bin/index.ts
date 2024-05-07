@@ -4,6 +4,8 @@ import { readFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import 'dotenv/config';
+
 import { globby } from 'globby';
 
 import parseCmdArgs from 'parse-cmd-args';
