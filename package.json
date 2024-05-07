@@ -13,7 +13,7 @@
   "license": "MIT",
   "dependencies": {
     "globby": "14.0.1",
-    "parse-cmd-args": "5.0.1"
+    "parse-cmd-args": "5.0.2"
   },
   "scripts": {
     "test": "node --test"
