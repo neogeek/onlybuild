@@ -27,7 +27,7 @@
   },
   "scripts": {
     "test": "node --import tsx --test ./src/*.test.ts",
-    "build": "rm -rf dist/ && tsc"
+    "build": "rm -rf dist/ && tsc && chmod +x ./dist/bin/index.js"
   },
   "keywords": [
     "javascript",
