@@ -7,7 +7,7 @@ import { dirname, join } from 'node:path';
  * @param {string} path
  * @param {string} buildDir
  */
-export const copyFileAndMakeDir = async (path, buildDir) => {
+export const copyFileAndMakeDir = async (path: string, buildDir: string) => {
   await mkdir(join(buildDir, dirname(path)), { recursive: true });
 
   await copyFile(path, join(buildDir, path));
@@ -19,7 +19,7 @@ export const copyFileAndMakeDir = async (path, buildDir) => {
  * @param {string[]} paths
  * @param {string} buildDir
  */
-export const copyFiles = async (paths, buildDir) => {
+export const copyFiles = async (paths: string[], buildDir: string) => {
   await Promise.all(
     paths.map(async path => await copyFileAndMakeDir(path, buildDir))
   );

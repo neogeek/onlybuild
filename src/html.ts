@@ -4,7 +4,7 @@
  * @param {TemplateStringsArray} strings
  * @param {any[]} values
  */
-export const html = (strings, ...values) => {
+export const html = (strings: TemplateStringsArray, ...values: any[]) => {
   const processedValues = values.map(value =>
     Array.isArray(value) ? value.join('') : value
   );

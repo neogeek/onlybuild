@@ -7,16 +7,27 @@
   },
   "type": "module",
   "bin": {
-    "onlybuild": "./bin/index.js"
+    "onlybuild": "dist/bin/index.js"
   },
-  "main": "./src/index.js",
+  "exports": {
+    ".": "./dist/src/index.js",
+    "./build": "./dist/src/build.js",
+    "./copy": "./dist/src/copy.js"
+  },
+  "types": "./dist/src/index.d.ts",
   "license": "MIT",
   "dependencies": {
     "globby": "14.0.1",
     "parse-cmd-args": "5.0.2"
   },
+  "devDependencies": {
+    "@types/node": "20.12.10",
+    "tsx": "4.9.3",
+    "typescript": "5.4.5"
+  },
   "scripts": {
-    "test": "node --test"
+    "test": "node --import tsx --test ./src/*.test.ts",
+    "build": "rm -rf dist/ && tsc"
   },
   "keywords": [
     "javascript",
