@@ -4,10 +4,16 @@
 
 examples/
 
-tests/
+bin/
+!dist/bin/
 
-*.test.js
+src/
+!dist/src/
+
+tests/
 
 .onlyignore
 
 .prettierrc
+
+tsconfig.json

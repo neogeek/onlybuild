@@ -8,7 +8,11 @@ import { basename, dirname, join, resolve } from 'node:path';
  * @param {string} buildDir
  * @param {string} contents
  */
-export const writeFileAndMakeDir = async (path, buildDir, contents) => {
+export const writeFileAndMakeDir = async (
+  path: string,
+  buildDir: string,
+  contents: string
+) => {
   const filename = basename(path, '.mjs');
 
   const directory =
@@ -27,7 +31,7 @@ export const writeFileAndMakeDir = async (path, buildDir, contents) => {
  * @param {string} path
  * @param {string} buildDir
  */
-export const buildFile = async (path, buildDir) => {
+export const buildFile = async (path: string, buildDir: string) => {
   const contents = (await import(resolve(path))).default;
 
   if (typeof contents === 'string') {
@@ -41,6 +45,6 @@ export const buildFile = async (path, buildDir) => {
  * @param {string[]} paths
  * @param {string} buildDir
  */
-export const buildFiles = async (paths, buildDir) => {
+export const buildFiles = async (paths: string[], buildDir: string) => {
   await Promise.all(paths.map(async path => await buildFile(path, buildDir)));
 };
