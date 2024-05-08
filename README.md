@@ -32,6 +32,7 @@
 - [Getting Started](#getting-started)
 - [File Structure](#file-structure)
 - [Ignore Files](#ignore-files)
+- [TypeScript](#typescript)
 - [Formatting Files](#formatting-files)
 - [Watching For Changes](#watching-for-changes)
 - [Local Server](#local-server)
@@ -91,6 +92,7 @@ Usage: onlybuild <path> [options]
    -v, --version         Display the current installed version.
    -o, --out             Sets build directory. Default path is build/
    -i, --ignore          Sets ignore file path. Default path is .onlyignore
+   -t, --typescript      Parse TypeScript files. (experimental)
 ```
 
 ## Quick Start Guide
@@ -260,6 +262,27 @@ As stated in the previous section, any files in a directory with a leading `_` c
 screenshot.png
 
 LICENSE
+```
+
+## TypeScript
+
+> [!WARNING]
+> This feature is experimental.
+
+By default `onlybuild` looks for `.mjs` files, but if you add the `--typescript` flag to the build command, it will instead look for `.ts` files.
+
+```bash
+$ npx onlybuild --typescript
+```
+
+You will also need to add `"type": "module"` to your `package.json` file for imports to work correctly.
+
+```json
+{
+  ...
+  "type": "module",
+  ...
+}
 ```
 
 ## Formatting Files

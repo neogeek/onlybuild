@@ -2,6 +2,8 @@
 
 import 'dotenv/config';
 
+import { register } from 'tsx/esm/api';
+
 import { globby } from 'globby';
 
 import parseCmdArgs from 'parse-cmd-args';
@@ -27,6 +29,7 @@ if (args.flags['--version'] || args.flags['-v']) {
    -v, --version         Display the current installed version.
    -o, --out             Sets build directory. Default path is build/
    -i, --ignore          Sets ignore file path. Default path is .onlyignore
+   -t, --typescript      Parse TypeScript files. (experimental)
 `);
   process.exit();
 }
@@ -39,8 +42,21 @@ const [ignoreFile = '.onlyignore'] = [args.flags['--ignore'], args.flags['-i']]
   .filter(flag => typeof flag === 'string')
   .map(String);
 
+const [typescript = false] = [args.flags['--typescript'], args.flags['-t']]
+  .filter(flag => typeof flag === 'boolean')
+  .map(Boolean);
+
+if (typescript) {
+  register();
+}
+
 const filesToBuild = await globby(
-  ['**/*.mjs', '!_*/**/*', '!node_modules/', `!${buildDir}`],
+  [
+    typescript ? '**/*.ts' : '**/*.mjs',
+    '!_*/**/*',
+    '!node_modules/',
+    `!${buildDir}`
+  ],
   {
     gitignore: false,
     ignoreFiles: [ignoreFile],
@@ -51,7 +67,7 @@ const filesToBuild = await globby(
 const filesToCopy = await globby(
   [
     '**/*',
-    '!**/*.mjs',
+    typescript ? '!**/*.ts' : '!**/*.mjs',
     '!_*/**/*',
     '!package.json',
     '!package-lock.json',
