@@ -4,6 +4,7 @@
 
 - [ ] Bugfix
 - [ ] Enhancement
+- [ ] Chore
 - [ ] Documentation
 - [ ] Other (please describe):
 
