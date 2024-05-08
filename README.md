@@ -32,6 +32,7 @@
 - [Getting Started](#getting-started)
 - [File Structure](#file-structure)
 - [Ignore Files](#ignore-files)
+- [React](#react)
 - [TypeScript](#typescript)
 - [Formatting Files](#formatting-files)
 - [Watching For Changes](#watching-for-changes)
@@ -262,6 +263,24 @@ As stated in the previous section, any files in a directory with a leading `_` c
 screenshot.png
 
 LICENSE
+```
+
+## React
+
+If you want to use [React.js](https://react.dev/), instead of <code>&#96;html&#96;</code> string templates, you can do that by using `react-dom/server` in a `.tsx` file.
+
+> [!WARNING]
+> This feature is experimental and requires the use of the `--typescript` flag (see below).
+
+```typescript
+import React from 'react';
+import { renderToString } from 'react-dom/server';
+
+function Hello() {
+  return <h1>Hello, React!</h1>;
+}
+
+export default renderToString(<Hello />);
 ```
 
 ## TypeScript

@@ -54,6 +54,7 @@ const filesToBuild = await globby(
   [
     '**/*.mjs',
     typescript ? '**/*.ts' : '',
+    typescript ? '**/*.tsx' : '',
     '!_*/**/*',
     '!node_modules/',
     `!${buildDir}`
@@ -70,6 +71,7 @@ const filesToCopy = await globby(
     '**/*',
     '!**/*.mjs',
     '!**/*.ts',
+    '!**/*.tsx',
     '!_*/**/*',
     '!package.json',
     '!package-lock.json',
