@@ -32,6 +32,7 @@
 - [Getting Started](#getting-started)
 - [File Structure](#file-structure)
 - [Ignore Files](#ignore-files)
+- [React](#react)
 - [TypeScript](#typescript)
 - [Formatting Files](#formatting-files)
 - [Watching For Changes](#watching-for-changes)
@@ -264,6 +265,24 @@ screenshot.png
 LICENSE
 ```
 
+## React
+
+If you want to use [React.js](https://react.dev/), instead of <code>&#96;html&#96;</code> string templates, you can do that by using `react-dom/server` in a `.tsx` file.
+
+> [!WARNING]
+> This feature is experimental and requires the use of the `--typescript` flag (see below).
+
+```typescript
+import React from 'react';
+import { renderToString } from 'react-dom/server';
+
+function Hello() {
+  return <h1>Hello, React!</h1>;
+}
+
+export default renderToString(<Hello />);
+```
+
 ## TypeScript
 
 > [!WARNING]
@@ -350,6 +369,7 @@ Serving the files once the build is complete is easy using the NPM package [http
 1. [External API](./examples/external-api/) - Output data fetched from an external API.
 1. [<code>&#96;html&#96;</code> String Template](./examples/html-string-template/) - Use the <code>&#96;html&#96;</code> string template utility to add syntax highlighting to HTML.
 1. [Includes](./examples/includes/) - An example that uses reusable includes for building multiple pages.
+1. [React.js](./examples/react.js/) - An example using React.js to render HTML.
 
 ## Benchmark
 
