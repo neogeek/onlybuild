@@ -6,7 +6,7 @@ import { globby } from 'globby';
 
 import parseCmdArgs from 'parse-cmd-args';
 
-import { buildFiles } from '../src/build.js';
+import { buildFiles, writeFiles } from '../src/build.js';
 import { copyFiles } from '../src/copy.js';
 
 import pkg from '../package.json' assert { type: 'json' };
@@ -39,33 +39,34 @@ const [ignoreFile = '.onlyignore'] = [args.flags['--ignore'], args.flags['-i']]
   .filter(flag => typeof flag === 'string')
   .map(String);
 
-await buildFiles(
-  await globby(['**/*.mjs', '!_*/**/*', '!node_modules/', `!${buildDir}`], {
+const filesToBuild = await globby(
+  ['**/*.mjs', '!_*/**/*', '!node_modules/', `!${buildDir}`],
+  {
     gitignore: false,
     ignoreFiles: [ignoreFile],
     cwd: args.inputs[0]
-  }),
-  buildDir
+  }
 );
 
-await copyFiles(
-  await globby(
-    [
-      '**/*',
-      '!**/*.mjs',
-      '!_*/**/*',
-      '!package.json',
-      '!package-lock.json',
-      '!node_modules/',
-      `!${buildDir}`
-    ],
-    {
-      gitignore: false,
-      ignoreFiles: [ignoreFile],
-      cwd: args.inputs[0]
-    }
-  ),
-  buildDir
+const filesToCopy = await globby(
+  [
+    '**/*',
+    '!**/*.mjs',
+    '!_*/**/*',
+    '!package.json',
+    '!package-lock.json',
+    '!node_modules/',
+    `!${buildDir}`
+  ],
+  {
+    gitignore: false,
+    ignoreFiles: [ignoreFile],
+    cwd: args.inputs[0]
+  }
 );
+
+await writeFiles(await buildFiles(filesToBuild), buildDir);
+
+await copyFiles(filesToCopy, buildDir);
 
 export {};
