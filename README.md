@@ -369,6 +369,7 @@ Serving the files once the build is complete is easy using the NPM package [http
 1. [External API](./examples/external-api/) - Output data fetched from an external API.
 1. [<code>&#96;html&#96;</code> String Template](./examples/html-string-template/) - Use the <code>&#96;html&#96;</code> string template utility to add syntax highlighting to HTML.
 1. [Includes](./examples/includes/) - An example that uses reusable includes for building multiple pages.
+1. [React.js](./examples/react.js/) - An example using React.js to render HTML.
 
 ## Benchmark
 
