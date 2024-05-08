@@ -4,6 +4,7 @@
 
 [Full Changelog](https://github.com/neogeek/onlybuild/compare/v1.2.1...HEAD)
 
+- [feat] Added TypeScript support. (experimental) [#14](https://github.com/neogeek/onlybuild/pull/14)
 - [hotfix] Added experimental code coverage flag to test command. [#13](https://github.com/neogeek/onlybuild/pull/13)
 - [feat] Split build and copy logic into separate methods. [#12](https://github.com/neogeek/onlybuild/pull/12)
 
