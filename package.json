@@ -27,7 +27,7 @@
     "typescript": "5.4.5"
   },
   "scripts": {
-    "test": "node --import tsx --test ./src/*.test.ts",
+    "test": "node --import tsx --test --experimental-test-coverage ./src/*.test.ts",
     "build": "rm -rf dist/ && tsc && chmod +x ./dist/bin/index.js",
     "prepare": "npm run build"
   },
