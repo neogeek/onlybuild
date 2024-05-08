@@ -52,11 +52,12 @@ if (typescript) {
 
 const filesToBuild = await globby(
   [
-    typescript ? '**/*.ts' : '**/*.mjs',
+    '**/*.mjs',
+    typescript ? '**/*.ts' : '',
     '!_*/**/*',
     '!node_modules/',
     `!${buildDir}`
-  ],
+  ].filter(Boolean),
   {
     gitignore: false,
     ignoreFiles: [ignoreFile],
@@ -67,7 +68,8 @@ const filesToBuild = await globby(
 const filesToCopy = await globby(
   [
     '**/*',
-    typescript ? '!**/*.ts' : '!**/*.mjs',
+    '!**/*.mjs',
+    '!**/*.ts',
     '!_*/**/*',
     '!package.json',
     '!package-lock.json',
