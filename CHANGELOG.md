@@ -1,9 +1,10 @@
 # Changelog
 
-## [HEAD](https://github.com/neogeek/onlybuild/tree/HEAD) - (2024-05-08)
+## [v1.3.0](https://github.com/neogeek/onlybuild/tree/v1.3.0) - (2024-05-08)
 
-[Full Changelog](https://github.com/neogeek/onlybuild/compare/v1.2.1...HEAD)
+[Full Changelog](https://github.com/neogeek/onlybuild/compare/v1.2.1...v1.3.0)
 
+- [hotfix] Updated packages. [#15](https://github.com/neogeek/onlybuild/pull/15)
 - [feat] Added TypeScript support. (experimental) [#14](https://github.com/neogeek/onlybuild/pull/14)
 - [hotfix] Added experimental code coverage flag to test command. [#13](https://github.com/neogeek/onlybuild/pull/13)
 - [feat] Split build and copy logic into separate methods. [#12](https://github.com/neogeek/onlybuild/pull/12)
