@@ -1,50 +1,76 @@
 import { writeFile, mkdir } from 'node:fs/promises';
-import { basename, dirname, join, resolve } from 'node:path';
+import { dirname, join, parse, resolve } from 'node:path';
 
 /**
- * Write the file to the build directory while creating the directory, recursively, if it doesn't exist.
+ * Calculates the output path of the file based on the original input path.
  *
  * @param {string} path
- * @param {string} buildDir
- * @param {string} contents
  */
-export const writeFileAndMakeDir = async (
-  path: string,
-  buildDir: string,
-  contents: string
-) => {
-  const filename = basename(path, '.mjs');
+export const calculateOutputPathFromInputPath = (path: string) => {
+  const filename = parse(path).name;
 
   const directory =
-    filename === 'index'
-      ? join(buildDir, dirname(path))
-      : join(buildDir, dirname(path), filename);
+    filename === 'index' ? dirname(path) : join(dirname(path), filename);
 
-  await mkdir(directory, { recursive: true });
-
-  await writeFile(join(directory, 'index.html'), contents);
+  return join(directory, 'index.html');
 };
 
 /**
- * Import the default export of a JavaScript file and check that the default export is a string before writing the contents to a build file.
+ * Returns the default export if it is a string.
  *
  * @param {string} path
- * @param {string} buildDir
+ * @returns {Promise<{ path: string; contents: string }>}
  */
-export const buildFile = async (path: string, buildDir: string) => {
+export const buildFile = async (
+  path: string
+): Promise<{ path: string; contents: string }> => {
   const contents = (await import(resolve(path))).default;
 
-  if (typeof contents === 'string') {
-    await writeFileAndMakeDir(path, buildDir, contents);
-  }
+  return { path, contents: typeof contents === 'string' ? contents : '' };
 };
 
 /**
- * Iterate over all the file paths and write them to the build directory.
+ * Iterate over all file paths and returns the default export for each file if it is a string.
  *
  * @param {string[]} paths
+ * @returns {Promise<{ path: string; contents: string }[]>}
+ */
+export const buildFiles = async (
+  paths: string[]
+): Promise<{ path: string; contents: string }[]> => {
+  return (
+    await Promise.all(paths.map(async path => await buildFile(path)))
+  ).filter(({ contents }) => contents !== '');
+};
+
+/**
+ * Writes the contents of a file to a path, creating parent directories as needed.
+ *
+ * @param {string} path
+ * @param {string} contents
+ */
+export const writeFileAndMakeDir = async (path: string, contents: string) => {
+  await mkdir(dirname(path), { recursive: true });
+
+  await writeFile(path, contents);
+};
+
+/**
+ * Write files to the build directory.
+ *
+ * @param {{ path: string; contents: string }[]} files,
  * @param {string} buildDir
  */
-export const buildFiles = async (paths: string[], buildDir: string) => {
-  await Promise.all(paths.map(async path => await buildFile(path, buildDir)));
+export const writeFiles = async (
+  files: { path: string; contents: string }[],
+  buildDir: string
+) => {
+  await Promise.all(
+    files.map(async file => {
+      await writeFileAndMakeDir(
+        join(buildDir, calculateOutputPathFromInputPath(file.path)),
+        file.contents
+      );
+    })
+  );
 };
