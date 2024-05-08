@@ -269,7 +269,7 @@ LICENSE
 > [!WARNING]
 > This feature is experimental.
 
-By default `onlybuild` looks for `.mjs` files, but if you add the `--typescript` flag to the build command, it will instead look for `.ts` files.
+By default `onlybuild` looks for `.mjs` files, but if you add the `--typescript` flag to the build command, it will also look for `.ts` files.
 
 ```bash
 $ npx onlybuild --typescript
