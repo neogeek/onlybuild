@@ -58,7 +58,7 @@ export const writeFileAndMakeDir = async (path: string, contents: string) => {
 /**
  * Write files to the build directory.
  *
- * @param {{ path: string; contents: string }[]} files,
+ * @param {{ path: string; contents: string }[]} files
  * @param {string} buildDir
  */
 export const writeFiles = async (
