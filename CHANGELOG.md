@@ -1,5 +1,11 @@
 # Changelog
 
+## [v1.4.1](https://github.com/neogeek/onlybuild/tree/v1.4.1) - (2024-05-09)
+
+[Full Changelog](https://github.com/neogeek/onlybuild/compare/v1.4.0...v1.4.1)
+
+- [hotfix] Added missing flag to pass options in shebang line. [#19](https://github.com/neogeek/onlybuild/pull/19)
+
 ## [v1.4.0](https://github.com/neogeek/onlybuild/tree/v1.4.0) - (2024-05-08)
 
 [Full Changelog](https://github.com/neogeek/onlybuild/compare/v1.3.0...v1.4.0)
