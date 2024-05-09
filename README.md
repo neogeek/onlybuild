@@ -53,6 +53,20 @@ If this is your first time using `onlybuild`, it is recommended that you use `cr
 $ npx create-onlybuild-app@latest
 ```
 
+After you run the above command, you'll see the following prompts:
+
+```
+What is your project named?
+Would you like to use TypeScript?
+How would you like to create pages?
+Do you want to watch for changes?
+Do you want to serve files locally?
+```
+
+And once you answer these questions, `create-onlybuild-app` will automatically create the files needed to get started based on your answers.
+
+It will also show the commands needed to enter the folder and build, watch (if enabled) or serve (if enabled) your static website.
+
 ## Install
 
 ### Globally
