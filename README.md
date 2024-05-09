@@ -26,6 +26,7 @@
 
 ## Table of Contents
 
+- [Automatic Installation](#automatic-installation)
 - [Install](#install)
 - [Usage](#usage)
 - [Quick Start Guide](#quick-start-guide)
@@ -43,6 +44,14 @@
 - [Contributing](#contributing)
 - [Community Roadmap](#community-roadmap)
 - [License](#license)
+
+## Automatic Installation
+
+If this is your first time using `onlybuild`, it is recommended that you use `create-onlybuild-app`, which will walk you through setting up a project and automatically create the files needed to get started.
+
+```bash
+$ npx create-onlybuild-app@latest
+```
 
 ## Install
 
