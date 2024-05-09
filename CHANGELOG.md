@@ -1,5 +1,13 @@
 # Changelog
 
+## [v1.4.0](https://github.com/neogeek/onlybuild/tree/v1.4.0) - (2024-05-08)
+
+[Full Changelog](https://github.com/neogeek/onlybuild/compare/v1.3.0...v1.4.0)
+
+- [feat] Switch typescript work without a flag. [#18](https://github.com/neogeek/onlybuild/pull/18)
+- [feat] TSX/React.js Support [#17](https://github.com/neogeek/onlybuild/pull/17)
+- [hotfix] Fixed TypeScript logic to not override JavaScript functionality. [#16](https://github.com/neogeek/onlybuild/pull/16)
+
 ## [v1.3.0](https://github.com/neogeek/onlybuild/tree/v1.3.0) - (2024-05-08)
 
 [Full Changelog](https://github.com/neogeek/onlybuild/compare/v1.2.1...v1.3.0)
