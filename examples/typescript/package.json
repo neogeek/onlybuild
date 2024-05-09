@@ -1,0 +1,10 @@
+{
+  "type": "module",
+  "devDependencies": {
+    "onlybuild": "file:../.."
+  },
+  "scripts": {
+    "build": "onlybuild"
+  },
+  "private": true
+}
