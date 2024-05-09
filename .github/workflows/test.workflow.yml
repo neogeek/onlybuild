@@ -46,3 +46,7 @@ jobs:
       - name: Run tests
         timeout-minutes: 5
         run: npm test
+
+      - name: Test CLI
+        timeout-minutes: 5
+        run: ./dist/bin/index.js --version
