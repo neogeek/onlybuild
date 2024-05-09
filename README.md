@@ -93,7 +93,6 @@ Usage: onlybuild <path> [options]
    -v, --version         Display the current installed version.
    -o, --out             Sets build directory. Default path is build/
    -i, --ignore          Sets ignore file path. Default path is .onlyignore
-   -t, --typescript      Parse TypeScript files. (experimental)
 ```
 
 ## Quick Start Guide
@@ -267,12 +266,9 @@ LICENSE
 
 ## React
 
-If you want to use [React.js](https://react.dev/), instead of <code>&#96;html&#96;</code> string templates, you can do that by using `react-dom/server` in a `.tsx` file.
+If you want to use [React.js](https://react.dev/), instead of <code>&#96;html&#96;</code> string templates, you can do that by using `react-dom/server` in a `.jsx` or `.tsx` file.
 
-> [!WARNING]
-> This feature is experimental and requires the use of the `--typescript` flag (see below).
-
-```typescript
+```javascript
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 
@@ -283,18 +279,19 @@ function Hello() {
 export default renderToString(<Hello />);
 ```
 
-## TypeScript
+In order for `.jsx` or `.tsx` files to work property you will need to add `"type": "module"` to your `package.json`.
 
-> [!WARNING]
-> This feature is experimental.
-
-By default `onlybuild` looks for `.mjs` files, but if you add the `--typescript` flag to the build command, it will also look for `.ts` files.
-
-```bash
-$ npx onlybuild --typescript
+```json
+{
+  ...
+  "type": "module",
+  ...
+}
 ```
 
-You will also need to add `"type": "module"` to your `package.json` file for imports to work correctly.
+## TypeScript
+
+In order for TypeScript files to work property you will need to add `"type": "module"` to your `package.json`.
 
 ```json
 {

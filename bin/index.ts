@@ -2,7 +2,7 @@
 
 import 'dotenv/config';
 
-import { register } from 'tsx/esm/api';
+import 'tsx/esm';
 
 import { globby } from 'globby';
 
@@ -29,7 +29,6 @@ if (args.flags['--version'] || args.flags['-v']) {
    -v, --version         Display the current installed version.
    -o, --out             Sets build directory. Default path is build/
    -i, --ignore          Sets ignore file path. Default path is .onlyignore
-   -t, --typescript      Parse TypeScript files. (experimental)
 `);
   process.exit();
 }
@@ -42,19 +41,12 @@ const [ignoreFile = '.onlyignore'] = [args.flags['--ignore'], args.flags['-i']]
   .filter(flag => typeof flag === 'string')
   .map(String);
 
-const [typescript = false] = [args.flags['--typescript'], args.flags['-t']]
-  .filter(flag => typeof flag === 'boolean')
-  .map(Boolean);
-
-if (typescript) {
-  register();
-}
-
 const filesToBuild = await globby(
   [
     '**/*.mjs',
-    typescript ? '**/*.ts' : '',
-    typescript ? '**/*.tsx' : '',
+    '**/*.jsx',
+    '**/*.ts',
+    '**/*.tsx',
     '!_*/**/*',
     '!node_modules/',
     `!${buildDir}`
@@ -70,6 +62,7 @@ const filesToCopy = await globby(
   [
     '**/*',
     '!**/*.mjs',
+    '!**/*.jsx',
     '!**/*.ts',
     '!**/*.tsx',
     '!_*/**/*',
