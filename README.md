@@ -68,6 +68,10 @@ And once you answer these questions, `create-onlybuild-app` will automatically c
 
 It will also show the commands needed to enter the folder and build, watch (if enabled) or serve (if enabled) your static website.
 
+### Demo
+
+https://github.com/neogeek/onlybuild/assets/6753/e64f0d09-44a9-41b6-9c4d-d004138e9f89
+
 ## Install
 
 ### Globally
