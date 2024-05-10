@@ -7,6 +7,5 @@ export default html`<!DOCTYPE html>
     ${head}
     <body>
       <h1>Hello, world!</h1>
-      <p>A zero-config cli for building static websites.</p>
     </body>
   </html>`;
