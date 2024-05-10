@@ -307,7 +307,7 @@ function Hello() {
 export default renderToString(<Hello />);
 ```
 
-In order for `.jsx` or `.tsx` files to work property you will need to add `"type": "module"` to your `package.json`.
+In order for `.jsx` or `.tsx` files to work properly you will need to add `"type": "module"` to your `package.json`.
 
 ```json
 {
@@ -319,7 +319,7 @@ In order for `.jsx` or `.tsx` files to work property you will need to add `"type
 
 ## TypeScript
 
-In order for TypeScript files to work property you will need to add `"type": "module"` to your `package.json`.
+In order for TypeScript files to work properly you will need to add `"type": "module"` to your `package.json`.
 
 ```json
 {
