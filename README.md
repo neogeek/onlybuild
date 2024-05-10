@@ -59,6 +59,7 @@ After you run the above command, you'll see the following prompts:
 What is your project named?
 Would you like to use TypeScript?
 How would you like to create pages?
+Include prettier config?
 Do you want to watch for changes?
 Do you want to serve files locally?
 ```
