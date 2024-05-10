@@ -1,6 +1,6 @@
-const comments = await fetch(
-  'https://jsonplaceholder.typicode.com/posts/1/comments'
-).then(response => response.json());
+const posts = await fetch('https://jsonplaceholder.typicode.com/posts').then(
+  response => response.json()
+);
 
 export default `<!DOCTYPE html>
 <html lang="en">
@@ -9,10 +9,8 @@ export default `<!DOCTYPE html>
   </head>
   <body>
       <h1>Hello, world!</h1>
-      <div>${comments
-        .map(
-          post => `<section><h2>${comments.name}</h2><p>${post.body}</section>`
-        )
+      <div>${posts
+        .map(post => `<section><h2>${post.title}</h2><p>${post.body}</section>`)
         .join('\n')}</div>
   </body>
 </html>`;
