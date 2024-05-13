@@ -20,7 +20,7 @@
     "dotenv": "16.4.5",
     "globby": "14.0.1",
     "parse-cmd-args": "5.0.2",
-    "tsx": "4.9.3"
+    "tsx": "4.10.2"
   },
   "devDependencies": {
     "@types/node": "20.12.11",
