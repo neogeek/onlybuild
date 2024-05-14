@@ -6,12 +6,18 @@ import 'tsx/esm';
 
 import { globby } from 'globby';
 
+import chalk from 'chalk';
+
 import parseCmdArgs from 'parse-cmd-args';
 
 import { buildFiles, writeFiles } from '../src/build.js';
 import { copyFiles } from '../src/copy.js';
 
 import pkg from '../package.json' assert { type: 'json' };
+
+const elapsedTimeLabel = 'Elapsed time:';
+
+console.time(elapsedTimeLabel);
 
 const args = parseCmdArgs(null, {
   requireUserInput: false
@@ -78,8 +84,17 @@ const filesToCopy = await globby(
   }
 );
 
-await writeFiles(await buildFiles(filesToBuild), buildDir);
+const filesToWrite = await buildFiles(filesToBuild);
+
+await writeFiles(filesToWrite, buildDir);
 
 await copyFiles(filesToCopy, buildDir);
+
+console.log(`Wrote ${chalk.green(filesToWrite.length)} file(s).`);
+console.log(`Copied ${chalk.green(filesToCopy.length)} file(s).`);
+
+console.log('');
+
+console.timeEnd(elapsedTimeLabel);
 
 export {};
