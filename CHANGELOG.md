@@ -1,8 +1,8 @@
 # Changelog
 
-## [HEAD](https://github.com/neogeek/onlybuild/tree/HEAD) - (2024-05-13)
+## [v1.5.0](https://github.com/neogeek/onlybuild/tree/v1.5.0) - (2024-05-13)
 
-[Full Changelog](https://github.com/neogeek/onlybuild/compare/v1.4.1...HEAD)
+[Full Changelog](https://github.com/neogeek/onlybuild/compare/v1.4.1...v1.5.0)
 
 - [feat] Added logging of files build and copied as well as the duration. [#21](https://github.com/neogeek/onlybuild/pull/21)
 - [hotfix] Updated packages. [#20](https://github.com/neogeek/onlybuild/pull/20)
