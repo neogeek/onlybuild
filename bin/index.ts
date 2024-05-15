@@ -15,7 +15,7 @@ import { copyFiles } from '../src/copy.js';
 
 import pkg from '../package.json' assert { type: 'json' };
 
-const elapsedTimeLabel = 'Elapsed time:';
+const elapsedTimeLabel = 'Elapsed time';
 
 console.time(elapsedTimeLabel);
 
