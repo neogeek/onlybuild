@@ -1,5 +1,12 @@
 # Changelog
 
+## [v1.5.1](https://github.com/neogeek/onlybuild/tree/v1.5.1) - (2024-05-15)
+
+[Full Changelog](https://github.com/neogeek/onlybuild/compare/v1.5.0...v1.5.1)
+
+- [hotfix] Updated elapsed time label. [#23](https://github.com/neogeek/onlybuild/pull/23)
+- [hotfix] Added mocked tests [#22](https://github.com/neogeek/onlybuild/pull/22)
+
 ## [v1.5.0](https://github.com/neogeek/onlybuild/tree/v1.5.0) - (2024-05-13)
 
 [Full Changelog](https://github.com/neogeek/onlybuild/compare/v1.4.1...v1.5.0)
