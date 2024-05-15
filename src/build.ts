@@ -1,4 +1,4 @@
-import { writeFile, mkdir } from 'node:fs/promises';
+import fs from 'node:fs/promises';
 import { dirname, join, parse, resolve } from 'node:path';
 
 /**
@@ -50,9 +50,9 @@ export const buildFiles = async (
  * @param {string} contents
  */
 export const writeFileAndMakeDir = async (path: string, contents: string) => {
-  await mkdir(dirname(path), { recursive: true });
+  await fs.mkdir(dirname(path), { recursive: true });
 
-  await writeFile(path, contents);
+  await fs.writeFile(path, contents);
 };
 
 /**
