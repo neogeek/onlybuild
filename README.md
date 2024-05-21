@@ -224,7 +224,27 @@ import { html } from 'onlybuild';
 export default html`<h1>Hello, world!</h1>`;
 ```
 
-Install the [lit-html](https://marketplace.visualstudio.com/items?itemName=bierner.lit-html) plugin in VS Code to help format the HTML on save.
+Install the [lit-html](https://marketplace.visualstudio.com/items?itemName=bierner.lit-html) and [prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) plugin in VS Code to help format the HTML on save.
+
+### <code>&#96;css&#96;</code> String Template Utility
+
+The `onlybuild` library includes an optional <code>&#96;css&#96;</code> string template utility that can be used to add syntax highlighting and formatting to CSS, making it easier to author CSS in JavaScript.
+
+```javascript
+import { css } from 'onlybuild';
+
+const styles = css`
+  body {
+    color: red;
+  }
+`;
+
+export default html`<style>
+  ${styles}
+</style>`;
+```
+
+Install the [prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) plugin in VS Code to help format the CSS on save.
 
 ## File Structure
 
