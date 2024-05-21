@@ -1,5 +1,12 @@
 # Changelog
 
+## [v1.6.0](https://github.com/neogeek/onlybuild/tree/v1.6.0) - (2024-05-21)
+
+[Full Changelog](https://github.com/neogeek/onlybuild/compare/v1.5.1...v1.6.0)
+
+- [feat] Added css string template method. [#25](https://github.com/neogeek/onlybuild/pull/25)
+- [hotfix] Updated packages. [#24](https://github.com/neogeek/onlybuild/pull/24)
+
 ## [v1.5.1](https://github.com/neogeek/onlybuild/tree/v1.5.1) - (2024-05-15)
 
 [Full Changelog](https://github.com/neogeek/onlybuild/compare/v1.5.0...v1.5.1)
