@@ -19,6 +19,13 @@ describe('html string template utility', async () => {
       '<span><b>this is a test</b></span>'
     );
   });
+  test('simple html string with array', () => {
+    const name = 'test';
+    assert.equal(
+      html`<span><b>this is a ${[name]}</b></span>`,
+      '<span><b>this is a test</b></span>'
+    );
+  });
   test('map', () => {
     assert.equal(
       html`<ul>

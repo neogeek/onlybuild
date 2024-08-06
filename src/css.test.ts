@@ -35,4 +35,19 @@ describe('css string template utility', async () => {
       `
     );
   });
+  test('simple css string with array', () => {
+    const color = 'red';
+    assert.equal(
+      css`
+        ${['body']} {
+          color: ${color};
+        }
+      `,
+      `
+        body {
+          color: red;
+        }
+      `
+    );
+  });
 });
