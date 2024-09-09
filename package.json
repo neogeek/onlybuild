@@ -21,10 +21,10 @@
     "dotenv": "16.4.5",
     "globby": "14.0.2",
     "parse-cmd-args": "5.0.2",
-    "tsx": "4.16.5"
+    "tsx": "4.19.0"
   },
   "devDependencies": {
-    "@types/node": "22.1.0",
+    "@types/node": "22.5.4",
     "typescript": "5.5.4"
   },
   "scripts": {
