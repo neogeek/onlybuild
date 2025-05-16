@@ -13,7 +13,7 @@ import parseCmdArgs from 'parse-cmd-args';
 import { buildFiles, writeFiles } from '../src/build.js';
 import { copyFiles } from '../src/copy.js';
 
-import pkg from '../package.json' assert { type: 'json' };
+import pkg from '../package.json' with { type: 'json' };
 
 const elapsedTimeLabel = 'Elapsed time';
 
