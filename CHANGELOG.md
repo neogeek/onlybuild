@@ -1,5 +1,12 @@
 # Changelog
 
+## [v1.6.6](https://github.com/neogeek/onlybuild/tree/v1.6.6) - (2025-07-02)
+
+[Full Changelog](https://github.com/neogeek/onlybuild/compare/v1.6.5...v1.6.6)
+
+- [hotfix] Updated packages. [#36](https://github.com/neogeek/onlybuild/pull/36)
+- [hotfix] Updated packages. [#35](https://github.com/neogeek/onlybuild/pull/35)
+
 ## [v1.6.5](https://github.com/neogeek/onlybuild/tree/v1.6.5) - (2025-02-18)
 
 [Full Changelog](https://github.com/neogeek/onlybuild/compare/v1.6.4...v1.6.5)
