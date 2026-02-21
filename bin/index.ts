@@ -3,10 +3,9 @@
 import 'tsx/esm';
 
 import { glob } from 'node:fs/promises';
+import { parseArgs } from 'node:util';
 
 import chalk from 'chalk';
-
-import parseCmdArgs from 'parse-cmd-args';
 
 import '../src/env.js';
 
@@ -19,14 +18,21 @@ const elapsedTimeLabel = 'Elapsed time';
 
 console.time(elapsedTimeLabel);
 
-const args = parseCmdArgs(null, {
-  requireUserInput: false
+const args = parseArgs({
+  args: process.argv.slice(2),
+  options: {
+    version: { type: 'boolean', short: 'v' },
+    help: { type: 'boolean', short: 'h' },
+    out: { type: 'string', short: 'o' },
+    ignore: { type: 'string', short: 'i' }
+  },
+  allowPositionals: true
 });
 
-if (args.flags['--version'] || args.flags['-v']) {
+if (args.values.version) {
   process.stdout.write(`${pkg.version}\n`);
   process.exit();
-} else if (args.flags['--help'] || args.flags['-h']) {
+} else if (args.values.help) {
   process.stdout.write(`Usage: onlybuild <path> [options]
 
   Options:
@@ -39,19 +45,17 @@ if (args.flags['--version'] || args.flags['-v']) {
   process.exit();
 }
 
-const [buildDir = 'build/'] = [args.flags['--out'], args.flags['-o']]
-  .filter(flag => typeof flag === 'string')
-  .map(String);
+const [buildDir = 'build/'] = [args.values.out].filter(Boolean).map(String);
 
-const [ignoreFile = '.onlyignore'] = [args.flags['--ignore'], args.flags['-i']]
-  .filter(flag => typeof flag === 'string')
+const [ignoreFile = '.onlyignore'] = [args.values.ignore]
+  .filter(Boolean)
   .map(String);
 
 const filesToBuild = (
   await Array.fromAsync(
     glob(['**/*.mjs', '**/*.jsx', '**/*.ts', '**/*.tsx'].filter(Boolean), {
       exclude: ['node_modules/', '_*/**/*', buildDir, ignoreFile],
-      cwd: args.inputs[0]
+      cwd: args.positionals[0]
     })
   )
 ).filter(path => path.includes('.'));
@@ -71,7 +75,7 @@ const filesToCopy = (
         buildDir,
         ignoreFile
       ],
-      cwd: args.inputs[0]
+      cwd: args.positionals[0]
     })
   )
 ).filter(path => path.includes('.'));
