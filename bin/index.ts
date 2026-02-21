@@ -1,7 +1,5 @@
 #!/usr/bin/env -S node --no-warnings
 
-import 'dotenv/config';
-
 import 'tsx/esm';
 
 import { globby } from 'globby';
@@ -9,6 +7,8 @@ import { globby } from 'globby';
 import chalk from 'chalk';
 
 import parseCmdArgs from 'parse-cmd-args';
+
+import '../src/env.js';
 
 import { buildFiles, writeFiles } from '../src/build.js';
 import { copyFiles } from '../src/copy.js';
