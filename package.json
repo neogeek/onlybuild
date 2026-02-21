@@ -3,7 +3,7 @@
   "description": "A zero-config cli for building static websites.",
   "version": "1.6.6",
   "engines": {
-    "node": ">=20.x"
+    "node": ">=22.22"
   },
   "type": "module",
   "bin": {
