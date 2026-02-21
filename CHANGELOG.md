@@ -1,5 +1,14 @@
 # Changelog
 
+## [v2.0.0](https://github.com/neogeek/onlybuild/tree/v2.0.0) - (2026-02-21)
+
+[Full Changelog](https://github.com/neogeek/onlybuild/compare/v1.6.6...v2.0.0)
+
+- [feat] Removed parse-cmd-args package. [#40](https://github.com/neogeek/onlybuild/pull/40)
+- Removed globby package. [#39](https://github.com/neogeek/onlybuild/pull/39)
+- [feat] Removed dotenv package. [#38](https://github.com/neogeek/onlybuild/pull/38)
+- [hotfix] Updated packages. [#37](https://github.com/neogeek/onlybuild/pull/37)
+
 ## [v1.6.6](https://github.com/neogeek/onlybuild/tree/v1.6.6) - (2025-07-02)
 
 [Full Changelog](https://github.com/neogeek/onlybuild/compare/v1.6.5...v1.6.6)
