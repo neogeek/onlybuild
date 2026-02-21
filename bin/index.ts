@@ -2,7 +2,7 @@
 
 import 'tsx/esm';
 
-import { globby } from 'globby';
+import { glob } from 'node:fs/promises';
 
 import chalk from 'chalk';
 
@@ -47,42 +47,34 @@ const [ignoreFile = '.onlyignore'] = [args.flags['--ignore'], args.flags['-i']]
   .filter(flag => typeof flag === 'string')
   .map(String);
 
-const filesToBuild = await globby(
-  [
-    '**/*.mjs',
-    '**/*.jsx',
-    '**/*.ts',
-    '**/*.tsx',
-    '!_*/**/*',
-    '!node_modules/',
-    `!${buildDir}`
-  ].filter(Boolean),
-  {
-    gitignore: false,
-    ignoreFiles: [ignoreFile],
-    cwd: args.inputs[0]
-  }
-);
+const filesToBuild = (
+  await Array.fromAsync(
+    glob(['**/*.mjs', '**/*.jsx', '**/*.ts', '**/*.tsx'].filter(Boolean), {
+      exclude: ['node_modules/', '_*/**/*', buildDir, ignoreFile],
+      cwd: args.inputs[0]
+    })
+  )
+).filter(path => path.includes('.'));
 
-const filesToCopy = await globby(
-  [
-    '**/*',
-    '!**/*.mjs',
-    '!**/*.jsx',
-    '!**/*.ts',
-    '!**/*.tsx',
-    '!_*/**/*',
-    '!package.json',
-    '!package-lock.json',
-    '!node_modules/',
-    `!${buildDir}`
-  ],
-  {
-    gitignore: false,
-    ignoreFiles: [ignoreFile],
-    cwd: args.inputs[0]
-  }
-);
+const filesToCopy = (
+  await Array.fromAsync(
+    glob(['**/*'], {
+      exclude: [
+        '**/*.mjs',
+        '**/*.jsx',
+        '**/*.ts',
+        '**/*.tsx',
+        '_*/**/*',
+        'package.json',
+        'package-lock.json',
+        'node_modules/',
+        buildDir,
+        ignoreFile
+      ],
+      cwd: args.inputs[0]
+    })
+  )
+).filter(path => path.includes('.'));
 
 const filesToWrite = await buildFiles(filesToBuild);
 
