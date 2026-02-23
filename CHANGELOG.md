@@ -1,5 +1,11 @@
 # Changelog
 
+## [v2.0.1](https://github.com/neogeek/onlybuild/tree/v2.0.1) - (2026-02-23)
+
+[Full Changelog](https://github.com/neogeek/onlybuild/compare/v2.0.0...v2.0.1)
+
+- [hotfix] Fixed issue with ignorefile not working. [#41](https://github.com/neogeek/onlybuild/pull/41)
+
 ## [v2.0.0](https://github.com/neogeek/onlybuild/tree/v2.0.0) - (2026-02-21)
 
 [Full Changelog](https://github.com/neogeek/onlybuild/compare/v1.6.6...v2.0.0)
