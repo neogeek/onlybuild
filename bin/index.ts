@@ -2,7 +2,8 @@
 
 import 'tsx/esm';
 
-import { glob } from 'node:fs/promises';
+import { glob, readFile } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
 import { parseArgs } from 'node:util';
 
 import chalk from 'chalk';
@@ -51,6 +52,10 @@ const [ignoreFile = '.onlyignore'] = [args.values.ignore]
   .filter(Boolean)
   .map(String);
 
+const filesToIgnore = existsSync(ignoreFile)
+  ? (await readFile(ignoreFile, 'utf8')).split(/\n+/g).filter(Boolean)
+  : [];
+
 const filesToBuild = (
   await Array.fromAsync(
     glob(['**/*.mjs', '**/*.jsx', '**/*.ts', '**/*.tsx'].filter(Boolean), {
@@ -73,7 +78,8 @@ const filesToCopy = (
         'package-lock.json',
         'node_modules/',
         buildDir,
-        ignoreFile
+        ignoreFile,
+        ...filesToIgnore
       ],
       cwd: args.positionals[0]
     })
