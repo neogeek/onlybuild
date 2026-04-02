@@ -21,8 +21,8 @@
     "tsx": "4.21.0"
   },
   "devDependencies": {
-    "@types/node": "25.3.0",
-    "typescript": "5.9.3"
+    "@types/node": "25.5.0",
+    "typescript": "6.0.2"
   },
   "scripts": {
     "test": "node --import tsx --test --experimental-test-coverage ./src/*.test.ts",
