@@ -6,6 +6,10 @@ on:
       - 'v*.*.*'
   workflow_dispatch:
 
+permissions:
+  contents: read
+  id-token: write
+
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -18,7 +22,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: 22.22
+          node-version: 24
           registry-url: 'https://registry.npmjs.org'
 
       - name: Update NPM to latest
@@ -30,15 +34,10 @@ jobs:
           npm -v
 
       - name: Install dependencies
-        run: npm ci
+        run: npm ci --ignore-scripts
 
-      - name: Create .npmrc
-        run: |
-          echo "registry=https://registry.npmjs.org/" > .npmrc
-          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" >> .npmrc
-
-      - name: NPM whoami
-        run: npm whoami
+      - name: Build package
+        run: npm run build
 
       - name: Publish package
         run: npm publish
