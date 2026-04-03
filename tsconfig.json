@@ -11,5 +11,5 @@
     "types": ["node"]
   },
   "include": ["./bin", "./src"],
-  "exclude": ["./dist", "**/*.test.ts"]
+  "exclude": ["./dist"]
 }
