@@ -1,5 +1,11 @@
 # Changelog
 
+## [v2.1.0](https://github.com/neogeek/onlybuild/tree/v2.1.0) - (2026-04-02)
+
+[Full Changelog](https://github.com/neogeek/onlybuild/compare/v2.0.1...v2.1.0)
+
+- [feat] Added file utils. [#42](https://github.com/neogeek/onlybuild/pull/42)
+
 ## [v2.0.1](https://github.com/neogeek/onlybuild/tree/v2.0.1) - (2026-02-23)
 
 [Full Changelog](https://github.com/neogeek/onlybuild/compare/v2.0.0...v2.0.1)
