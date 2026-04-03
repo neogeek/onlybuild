@@ -88,14 +88,14 @@ describe('build files', async () => {
     );
   });
   test('write file (and make directory as needed)', async () => {
-    const tmp = {};
+    const tmp: { [key: string]: string } = {};
 
     mock.method(fs, 'mkdir', async () => {});
-    mock.method(fs, 'readFile', async path => tmp[path]);
+    mock.method(fs, 'readFile', async (path: string) => tmp[path]);
     mock.method(
       fs,
       'writeFile',
-      async (path, contents) => (tmp[path] = contents)
+      async (path: string, contents: string) => (tmp[path] = contents)
     );
 
     const { writeFileAndMakeDir } = await import('./build.js');
@@ -110,14 +110,14 @@ describe('build files', async () => {
     mock.reset();
   });
   test('write multiple files (and make directory as needed)', async () => {
-    const tmp = {};
+    const tmp: { [key: string]: string } = {};
 
     mock.method(fs, 'mkdir', async () => {});
-    mock.method(fs, 'readFile', async path => tmp[path]);
+    mock.method(fs, 'readFile', async (path: string) => tmp[path]);
     mock.method(
       fs,
       'writeFile',
-      async (path, contents) => (tmp[path] = contents)
+      async (path: string, contents: string) => (tmp[path] = contents)
     );
 
     const { writeFiles } = await import('./build.js');
