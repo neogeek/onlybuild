@@ -1,6 +1,6 @@
 /* node:coverage disable */
 
-import test, { describe, it, mock } from 'node:test';
+import test, { describe, mock } from 'node:test';
 import assert from 'node:assert';
 import fs from 'node:fs/promises';
 
