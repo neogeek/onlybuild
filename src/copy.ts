@@ -1,6 +1,8 @@
 import { copyFile, mkdir } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 
+import { isDirectory } from './files.js';
+
 /**
  * Copies a file from one path to another, creating parent directories as needed.
  *
@@ -8,6 +10,11 @@ import { dirname, join } from 'node:path';
  * @param {string} dest
  */
 export const copyFileAndMakeDir = async (src: string, dest: string) => {
+  if (await isDirectory(src)) {
+    await mkdir(dest, { recursive: true });
+    return;
+  }
+
   await mkdir(dirname(dest), { recursive: true });
 
   await copyFile(src, dest);
