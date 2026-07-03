@@ -1,5 +1,13 @@
 # Changelog
 
+## [HEAD](https://github.com/neogeek/onlybuild/tree/HEAD) - (2026-07-03)
+
+[Full Changelog](https://github.com/neogeek/onlybuild/compare/v2.1.0...HEAD)
+
+- [hotfix] Fixed issue with copyfile failing on directory with file extension. [#45](https://github.com/neogeek/onlybuild/pull/45)
+- [feat] Added isDirectory method. [#44](https://github.com/neogeek/onlybuild/pull/44)
+- [hotfix] Updated packages. [#43](https://github.com/neogeek/onlybuild/pull/43)
+
 ## [v2.1.0](https://github.com/neogeek/onlybuild/tree/v2.1.0) - (2026-04-02)
 
 [Full Changelog](https://github.com/neogeek/onlybuild/compare/v2.0.1...v2.1.0)
