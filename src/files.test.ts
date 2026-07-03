@@ -34,12 +34,12 @@ describe('files', async () => {
   test('getPatternsFromGitIgnore', async () => {
     const files = await getPatternsFromGitIgnore();
 
-    assert.deepEqual(files, ['node_modules/', 'dist/']);
+    assert.deepEqual(files, ['node_modules/', 'dist/', 'temp/']);
   });
   test('getPatternsFromGitIgnore (with options)', async () => {
     const files = await getPatternsFromGitIgnore(process.cwd(), '.gitignore');
 
-    assert.deepEqual(files, ['node_modules/', 'dist/']);
+    assert.deepEqual(files, ['node_modules/', 'dist/', 'temp/']);
   });
   test('isDirectory (directory test)', async () => {
     assert.ok(await isDirectory('./tests'));
