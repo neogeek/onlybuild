@@ -1,6 +1,6 @@
 import { EOL } from 'node:os';
 import { join } from 'node:path';
-import { glob, readFile } from 'node:fs/promises';
+import { glob, readFile, stat } from 'node:fs/promises';
 
 export const findFiles = async (
   pattern: string | readonly string[],
@@ -27,4 +27,14 @@ export const getPatternsFromGitIgnore = async (
   return (await readFile(cwd ? join(cwd, filename) : filename, 'utf8'))
     .split(EOL)
     .filter(Boolean);
+};
+
+export const isDirectory = async (path: string) => {
+  try {
+    const stats = await stat(path);
+
+    return stats.isDirectory();
+  } catch {
+    return false;
+  }
 };
