@@ -3,7 +3,7 @@
 import test, { describe } from 'node:test';
 import assert from 'node:assert';
 
-import { findFiles, getPatternsFromGitIgnore } from './files.js';
+import { findFiles, getPatternsFromGitIgnore, isDirectory } from './files.js';
 
 describe('files', async () => {
   test('findFiles (with string patther)', async () => {
@@ -40,5 +40,11 @@ describe('files', async () => {
     const files = await getPatternsFromGitIgnore(process.cwd(), '.gitignore');
 
     assert.deepEqual(files, ['node_modules/', 'dist/']);
+  });
+  test('isDirectory (directory test)', async () => {
+    assert.ok(await isDirectory('./tests'));
+  });
+  test('isDirectory (file test)', async () => {
+    assert.ok(!(await isDirectory('package.json')));
   });
 });
