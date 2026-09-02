@@ -12,7 +12,10 @@
   "exports": {
     ".": "./dist/src/index.js",
     "./build": "./dist/src/build.js",
-    "./copy": "./dist/src/copy.js"
+    "./copy": "./dist/src/copy.js",
+    "./css": "./dist/src/css.js",
+    "./files": "./dist/src/files.js",
+    "./html": "./dist/src/html.js"
   },
   "types": "./dist/src/index.d.ts",
   "license": "MIT",
